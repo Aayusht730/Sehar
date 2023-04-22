@@ -59,7 +59,7 @@
               </li>-->
               <li> 
                 <li class="nav-item">
-                    <i class="fas fa-shopping-cart"></i>
+                  <a  class='nav-link' href="cart_page.php"><i class="fas fa-shopping-cart" ></i></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="login.php"> <i class="fas fa-user"></i> </a>
@@ -125,7 +125,7 @@
       <!-- featured -->
       <section id="Featured" class="my-3 pb-5">
         <div class="container text-center mt-10 py-5">
-          <h3>Featured Products</h3>
+          <h3>Digital Products</h3>
           <hr>
           <p><b>Here you can find our featured products.</b></p>
         </div>
@@ -136,7 +136,10 @@
 
 
         <?php
-        while ($row = $featured_products->fetch_assoc()) { 
+        while ($row = $featured_products->fetch_assoc()) {
+          if ($row["category_id"] === 4) {
+
+        
         ?> 
 
             <div class="product text-center col-lg-3 col-md-4 col-sm-12">
@@ -155,6 +158,7 @@
 
         <?php   
         } 
+      }
         ?>
 
 
