@@ -1,0 +1,657 @@
+/* improting font from google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:wght@100&display=swap');
+
+/* .search-bar{
+    margin-left: 5%;
+}; */
+
+.nav-buttons{
+    margin-left: 40%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif ;
+}
+
+h1{
+    font-size: 2;
+    font-weight: 700;
+}
+
+h2{
+    font-size: 1.8;
+    font-weight: 600;
+}
+
+h3{
+    font-size: 1.6;
+    font-weight: 800;
+}
+
+h4{
+    font-size: 1.5;
+    font-weight: 600;
+}
+
+h5{
+    font-size: 1;
+    font-weight: 1000;
+}
+
+h6{
+    color :#D8D8D8;
+}
+
+/* .bg-custom{
+    bac;
+
+} */
+.navbar{
+    font-size: 20px;
+    font-weight: 1000;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    top: 0;
+    left: 0;
+    box-shadow: 0 3px 5px #71C598;
+}
+
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 10px;
+    color: black;
+    /* transition is just an amount of time taken by the element to be displayed on screen  */
+    transition: 0.4s ease; 
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover, 
+.navbar-light .navbar-nav .nav-link:active
+.navbar i:hover{
+    font-size: 25px;
+    font-weight: 700;
+    color: #71C598;
+}
+
+.navbar i {
+    font-size: 1.2rem;
+    padding: 0 0.5px;
+    transition: 0.4s ease;
+    cursor: pointer;
+    margin-left: 2px;
+}
+
+@media only screen and (max-width:990px){
+    .nav-buttons{
+         margin: 10px;
+    }
+    .nav-buttons ul{
+        margin: 1rem;
+        justify-content: flex-start;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .nav-buttons ul .fas{
+        /* 10from up 5from right 10from bottom and 10from left  */
+        margin: 10px 5px 10px 10px;
+    }
+}
+
+
+
+.form-control{
+    font-weight: bold;
+    border-color: black;
+}
+
+.button {
+    font-weight: bold;
+    background-color: black;
+    color: #71C598;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px; /* This will increase the size of the button */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+    background-color: #71C598;
+    color: black;
+}
+
+
+#HomePage{
+    background-image: url('../imgs/medical supplies.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-x: 0px ;
+    background-position-y: -245px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    
+        
+}
+
+/* #HomePage span{
+    color: #71C598;
+
+} */
+
+/* for home shop now button */
+.color-button {
+    background-color: black;
+    color: #71C598;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px; /* This will increase the size of the button */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.color-button:hover {
+    background-color: #71C598;
+    color: black;
+}
+
+
+/* for new  */
+
+#New .one img{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#New .one{
+    position: relative;
+}
+
+#New .one .details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #71C598;
+    font-weight: bold;
+    transition: 0.4s ease;
+    opacity: 0.6;
+    background-color: rgb(1,1,1);
+    width: 100%;
+    height: 100%;
+}
+
+#New .one:nth-child(1) .details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#New .one:nth-child(2) .details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#New .one:nth-child(3) .details{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+}
+
+#New .one .details:hover{
+    background-color: #4f4b4b;
+}
+
+/* for new section button  */
+.col-button{
+    font-weight: bold;
+    background-color: black;
+    color: #71C598;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px; /* This will increase the size of the button */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.col-button:hover {
+    background-color: #71C598;
+    color: black;
+}
+
+/* for featured products */
+
+.buy-button{
+    font-weight: bold;
+    background-color: #71C598;
+    color: black;
+    /* This will make the button rounded */
+    border-radius: 10px; 
+    /* This will increase the size of the button */
+    padding: 6px; 
+    transition: background-color 0.3s, color 0.3s;
+}
+.buy-button:hover{
+    border-color: #71C598;
+    background-color: black;
+    color: #71C598;
+}
+
+
+/* For porducts */
+.product{
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.product img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    transition: 0.4s all;
+}
+
+.product:hover img{
+    opacity:0.5;
+}
+
+.product .buy-button{
+    background-color: black;
+    color: #71C598;
+    transform:  translateY(50px);
+    opacity: 0;
+    transition: 0.6s all;
+}
+
+.product:hover .buy-button{
+    transform:  translateY(0px);
+    opacity: 1;
+    background-color: #71C598;
+    color: black;
+
+}
+
+#banner{
+    background-image: url('../imgs/banner.jpg');
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 20px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+#banner{
+    color: black;
+}
+
+/* #banner span{
+    color: #71C598;
+
+} */
+
+.banner-button{ 
+    font-weight: bold;
+    background-color: black;
+    color: #71C598;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px; /* This will increase the size of the button */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.banner-button:hover {
+    background-color: #71C598;
+    color: black;
+}
+
+.star{
+    padding: 10px 0;
+}
+.star i{
+    font-size: 1.2rem;
+    /* color: #4f4b4b; */
+}
+
+footer {
+    box-shadow: 0 -3px 5px #71C598;
+    background-color: #ffffff;
+    color: black;
+    padding: 3rem 0;
+    font-weight: bold;
+  }
+  
+  footer img {
+    max-width: 60%;
+  }
+  
+  footer ul {
+    color: black;
+    list-style: none;
+    padding: 0;
+  }
+
+  footer ul li a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  footer #links ul :hover{
+    color: #71C598;
+    font-size: 1.5rem;
+  }
+  
+  footer .social-links li a {
+    color: black;
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+  
+  footer .social-links li a:hover {
+    color: #71C598;
+    font-size: 3rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .social-links li {
+    margin: 0;
+    padding: 0;
+}
+  
+  footer p {
+    margin-top: 2rem;
+  }
+  
+
+/* ............................login................................. */
+
+ #login-form{
+    font-weight: bold;
+    width: 80%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #71C598;
+}
+
+#login-form input{
+    font-weight: bold;
+    width: 60%;
+    margin: 5px auto;
+}
+
+#login-form #login-btn{
+    background-color: black;
+    color: #71C598;
+    border-radius: 7px;
+}
+
+#login-form #registerurl span{
+    color: #71C598;
+    text-decoration: underline;
+}
+
+#login-form #registerurl{
+    font-weight: bold;
+    color: black;
+}
+
+
+
+/*................................register.............................. */
+
+#register-form{
+    font-weight: bold;
+    width: 80%;
+    margin: 5px auto;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #71C598;
+}
+
+#register-form input{
+    font-weight: bold;
+    width: 60%;
+    margin: 5px auto;
+}
+
+#register-form  #register-btn{
+    background-color: black;
+    color: #71C598;
+}
+
+#register-form #login-url{
+    font-weight: bold;
+    color: black;
+}
+
+#register-form #login-url span{
+    color: #71C598;
+    text-decoration: underline;
+}
+
+/* .........single product page .................. */
+
+.small-img-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 22%;
+    cursor: pointer;
+}
+
+.single-product input{
+    border-color: #71C598;
+    width: 60px;
+    height: 40px;
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 15px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.single-product input:focus{
+    outline-color: #71C598;
+}
+
+.single-product .buy-button{
+    margin-right: 10px;
+}
+
+.single-product .details{
+    font-weight: bold;
+}
+
+
+/*............... cart page ...............*/
+
+.cart table{
+    font-weight: bold;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart .product-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart th{
+    text-align: left;
+    padding: 5px 10px;
+    color: black;
+    background-color: #71C598;
+}
+
+.cart td{
+    padding: 10px 20px;
+}
+
+.cart td img{
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;   
+}
+
+.cart .remove-btn{
+    color: red;
+    font-weight: bolder;
+}
+
+/* .cart .edit-btn{
+    color: #71C598;
+    font-weight: bolder;
+} */
+
+.cart td input{
+    text-align: center;
+    /* border-color: #71C598; */
+    width: 50px;
+    height: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+/* .cart .product-info{
+    margin: 3px;
+} */
+
+
+
+
+/* .......................total of cart........... */
+
+.cart-total{
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart-total table {
+    width: 100%;
+    max-width: 500px;
+    border-top: 3px solid #71C598;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+th:last-child{
+    text-align: right;
+}
+
+.checkout-btn{
+    font-weight: bold;
+    background-color: #71C598;
+    color: black;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px; /* This will increase the size of the button */
+}
+
+.checkout-btn:hover{
+    background-color: black;
+    color: #71C598;
+    
+}
+
+.checkout-container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/* ............checkoutpage............... */
+
+#checkout-form{
+    border-top: 3px solid #71C598;
+    font-weight: bold;
+}
+
+#checkout-form .checkout-small-element{
+    display: inline-block;
+    width: 49.8%;
+    margin: 10px auto;
+}
+
+#checkout-form .checkout-large-element{
+    width: 100%;
+}
+#checkout-form .checkout-btn-container{
+    margin-top: 20px;
+    /* text-align: right; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+#checkout-form #checkout-btn{
+    font-weight: bold;
+    background-color: #71C598;
+    color: black;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px; /* This will increase the size of the button */
+}
+#checkout-form #checkout-btn:hover{
+    background-color: black;
+    color: #71C598;
+}
+
+
+/* ..........account page............. */
+
+.account-info {
+    font-weight: bold;
+}
+
+.account-info #order-btn, #logout-btn{
+    color: #71C598;
+}
+
+#account-form{
+    font-weight: bold;
+    width: 50%;
+    margin: 35px auto;
+    text-align: center;
+    padding: 20px;
+}
+
+#account-form input{
+    margin: 5px auto;
+}
+
+#account-form #change-pass-btn{
+    font-weight: bold;
+    background-color: black;
+    color: #71C598;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px;
+}
+
+#account-form #change-pass-btn:hover{
+    background-color: #71C598;
+    color: black;
+}
+
