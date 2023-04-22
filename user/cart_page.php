@@ -1,8 +1,7 @@
 <?php session_start(); ?>
 
 <?php 
-
-
+// fetch products from the single product page.
   if(isset($_POST['add_to_cart'])){
     
     // if user already has product in the cart
@@ -99,6 +98,7 @@ else{
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
+                 
               </ul>
             </li>
             <!-- <li class="nav-item">
@@ -146,6 +146,7 @@ else{
                       <div class = "product-info">
                       <img class="img-fluid" src="../admin/uploads/product/<?php echo $value['image1']; ?>" /> 
                           <div>
+
                               <p><?php echo $value['name']; ?></p>
                               <small><span>Rs.</span><?php echo $value['price']; ?></small>
                               <br>
