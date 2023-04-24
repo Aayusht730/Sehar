@@ -9,13 +9,12 @@ session_start();
     // if user already has product in the cart
     if (isset($_SESSION['cart'])){
       $product_id = $_POST['product_id'];
-      // echo $product_id;
-      // print_r($_POST);
-      
+
       $product_array_ids = array_column($_SESSION['cart'],"product_id");
-      // echo $product_id+" "+json_encode($product_array_ids);
+
       // if the product has already been added to cart or not
       if(!in_array($_POST['product_id'], $product_array_ids)){
+
         $product_array = array( 'product_id' => $_POST['product_id'],
                                 'image1' => $_POST['image1'],
                                 'name' => $_POST['name'],
@@ -23,6 +22,7 @@ session_start();
                                 'qty' => $_POST['qty']);
       $_SESSION['cart'][$product_id] = $product_array;
       }
+      // if the product has already been added
       else{
         echo'<script>alert("Product was already added to the cart")</script>';
 
@@ -45,6 +45,12 @@ session_start();
     $_SESSION['cart'][$product_id] = $product_array;
   }
 } 
+// remove product from the cart
+else if(isset($_POST['remove_product'])){ 
+
+  $product_id = $_POST['product_id'];
+  unset($_SESSION['cart'][$product_id]);
+}
 else{
   // header('Location: index.php');
 }
@@ -111,7 +117,10 @@ include('navbar.php');
                               <p><?php echo $value['name']; ?></p>
                               <small><span>Rs.</span><?php echo $value['price']; ?></small>
                               <br>
-                              <a class="remove-btn" href="#">Remove</a>
+                              <form method="POST" action="cart_page.php">
+                                <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>">
+                                <input type="submit" name="remove_product" class="remove-btn" value="Remove"/>
+                              </form>
                           </div>
                       </div>
                   </td>

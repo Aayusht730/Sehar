@@ -516,8 +516,11 @@ footer {
 }
 
 .cart .remove-btn{
-    color: red;
+    color: rgb(110, 22, 22);
     font-weight: bolder;
+    background-color: white;
+    border: none;
+    width: 100%;
 }
 
 /* .cart .edit-btn{
