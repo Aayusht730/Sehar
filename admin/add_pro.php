@@ -83,47 +83,17 @@ include('includes/sidebar.php');
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label>Offer Price</label>
-                        <input type="text" name="offerprice" class="form-control" placeholder="Enter Product Offer Price">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>VAT</label>
-                        <input type="text" name="vat" class="form-control" placeholder="Enter Value Added Tax">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
                         <label>Quantity</label>
                         <input type="text" name="qty" class="form-control" placeholder="Enter  Quantity">
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label>Upload Image-1</label>
                         <input type="file" name="image1" class="form-control" required>
                     </div>
                 </div>
-                <!-- <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Upload Image-2</label>
-                        <input type="file" name="image2" class="form-control" required>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Upload Image-3</label>
-                        <input type="file" name="image3" class="form-control" required>
-                    </div>
-                </div>     -->
                 <div class="col-md-3">
-                    <div class="form-group">
-                        <label>Status (checked = Show | Hide)</label><br>
-                        <input type="checkbox" name="status" > Show / Hide
-                    </div>
-                </div>
-                <div class="col-md-4">
                     <div class="form-group">
                         <label>Click To Save</label><br>
                         <button type = "submit" name = "product_save" class="btn btn-primary btn-block">Save</button>

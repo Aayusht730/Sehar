@@ -100,7 +100,7 @@ else{
       ?>
         <div class=" col-lg-5 col-md-6 col-sm-12">
             <img class="img-fluid w-100 pb-2" src="../admin/uploads/product/<?php echo $row['image1']; ?>" id="mainImg"/>
-            <div class="small-img-group">
+            <!-- <div class="small-img-group">
                 <div class="small-img-col">
                     <img src="../admin/uploads/product/<?php echo $row['image1']; ?>" width="100%" class="small-img"/>
                 </div>
@@ -110,8 +110,9 @@ else{
                 <div class="small-img-col">
                     <img src="../admin/uploads/product/<?php echo $row['image1']; ?>" width="100%" class="small-img"/>
                 </div>
-            </div>
+            </div> -->
         </div>
+      
 
         <div class="details py-5 mt-3 col-lg-6 col-md-12 col-sm-12">
           <h5>Electronic Device</h5>
@@ -143,106 +144,41 @@ else{
               <hr>
               <p><b>Aslo see the related products.</b></p>
             </div>
-           <div class="row mx-auto container-fluid">
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class="img-fluid" src="assets/imgs/bloodpressure.jpg" /> 
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+          <div class="row mx-auto container-fluid">
+                  <?php 
+                  include('server_user/get_featured_products.php');
+              ?>
+
+
+              <?php
+              while ($row = $featured_products->fetch_assoc()) {
+                // if ($row["category_id"] == 4) {
+
+              
+              ?> 
+
+              <div class="product text-center col-lg-3 col-md-4 col-sm-12">
+                  <img class="img-fluid" src="../admin/uploads/product/<?php echo $row['image1']; ?>" /> 
+                  <h5 class="pro-name"><?php echo $row['name']; ?> </h5>
+                  <h4 class="pro-price">Rs. <?php echo $row['price']; ?></h4>
+                  <a href="<?php echo "single_product.php?product_id=". $row['id'];?>"><button class="buy-button">Buy Now</button></a>
               </div>
-              <h5 class="pro-name">BP Monitor Machine</h5>
-              <h4 class="pro-price">Rs. 5000</h4>
-              <button class="buy-button">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class="img-fluid" src="assets/imgs/pexels-mikhail-nilov-8669879.jpg" /> 
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h5 class="pro-name">BP Monitor Machine</h5>
-              <h4 class="pro-price">Rs. 5000</h4>
-              <button class="buy-button">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class="img-fluid" src="assets/imgs/thermometer.jpg" /> 
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h5 class="pro-name">BP Monitor Machine</h5>
-              <h4 class="pro-price">Rs. 5000</h4>
-              <button class="buy-button">Buy Now</button>
-            </div>
-            <div class="product text-center col-lg-3 col-md-4 col-sm-12">
-              <img class="img-fluid" src="assets/imgs/infrared thermometer.jpg" /> 
-              <div class="star">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <h5 class="pro-name">BP Monitor Machine</h5>
-              <h4 class="pro-price">Rs. 5000</h4>
-              <button class="buy-button">Buy Now</button>
-            </div>
+
+              <?php   
+              } 
+            
+              ?>
+          
            </div> 
           </section>
   
   
   
   <!-- footer -->
-    <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <img src="assets/imgs/seharlogo.png" alt="Logo">
-              <p class="pt-3">We provide best product at most affordable prices.</p>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12" id="links">
-              <h4>Links</h4>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="login.html">Login</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <h4>Contact</h4>
-              <ul>
-                <li>Email: sehar.official@email.com</li>
-                <li>Phone: +977-0123456789</li>
-                <li>Address: Kathmandu, Nepal</li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <h4>Follow Us</h4>
-              <ul class="social-links">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <p class="text-center">Copyright &copy; 2022 Sehar. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-</footer>
+  <?php
+    include('footer.php');
+  ?>
+        
                     
 
 

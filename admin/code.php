@@ -23,15 +23,16 @@ if(isset($_POST['pro_update'])){
     $image1 = $_FILES['image1']['name'];
     // $image2 = $_FILES['image2']['name'];
     // $image3 = $_FILES['image3']['name'];
-    $old_image = $_FILES['old_image'];
-    $status = $_POST['status'] == true ? '1':'0';
+    $old_image = $_POST['old_image'];
+    // $status = $_POST['status'] == true ? '1':'0';
 
     if($image1 != ''){
         $update_filename = $_FILES['image1']['name'];
 
         
         $allowed_extension = array('png','jpg','jpeg');
-        $file_extensions = pathinfo($$update_filename , PATHINFO_EXTENSION);
+
+        $file_extensions = pathinfo($update_filename , PATHINFO_EXTENSION);
 
         $filename = time().'.'.$file_extensions;
 
@@ -85,11 +86,9 @@ if(isset($_POST['product_save'])){
     $description = $_POST['description'];
     $long_description = $_POST['long_description'];
     $price = $_POST['price'];
-    $offerprice = $_POST['offerprice'];
-    $vat = $_POST['vat'];
     $qty = $_POST['qty'];
     $image1 = $_FILES['image1']['name'];
-    $status = $_POST['status'] == true ? '1':'0';
+    // $status = $_POST['status'] == true ? '1':'0';
     // $image2 = $_FILES['image2']['name'];
     // $image3 = $_FILES['image3']['name'];
 
@@ -104,8 +103,8 @@ if(isset($_POST['product_save'])){
         exit(0);
     }
     else{
-        $query = "INSERT INTO products (category_id,name,description,long_description,price,offerprice,vat,qty,image1,status) 
-        VALUES ('$category_id','$name','$description','$long_description','$price','$offerprice','$vat','$qty','$filename','$status')";
+        $query = "INSERT INTO products (category_id,name,description,long_description,price,qty,image1) 
+                    VALUES ('$category_id','$name','$description','$long_description','$price','$qty','$filename')";
         $query_run = mysqli_query($con, $query);
         if($query_run){
             move_uploaded_file($_FILES['image1']['tmp_name'], 'uploads/product/'.$filename);

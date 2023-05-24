@@ -52,12 +52,10 @@
             </ul>
           </li>
 
-
-        <li class="nav-header">Settings<li>
             <li class="nav-items">
-             <a href="#" class="nav-link">
-             <i class="nav-icon far fa-user"></i>
-             <p>Admin Profile<span badge badge-info right"></span></p>
+             <a href="orders.php" class="nav-link">
+             <i class="far fa-circle nav-icon"></i>
+             <p>Orders<span badge badge-info right"></span></p>
              </a>
             </li>
         </li>
@@ -67,12 +65,12 @@
                 <p>Registered user</p>
             </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a href="pages/gallery.html" class="nav-link">
                 <i class="nav-icon fa fa-cog"></i>
                 <p> Role for user </p>
             </a>
-        </li>
+        </li> -->
           
         </ul>
       </nav>

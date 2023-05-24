@@ -53,7 +53,7 @@ include('includes/sidebar.php');
           <div class="card-body" >
             <form action="code.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="product_id" value="<?php echo $proitem['id']; ?>" >
-               
+                
 
             <div class="row"> 
                 <div class="col-md-12">
@@ -100,18 +100,7 @@ include('includes/sidebar.php');
                         <input type="text" name="price" class="form-control" value="<?php echo $proitem['price']; ?>"placeholder="Enter Product Price">
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>Offer Price</label>
-                        <input type="text" name="offerprice" class="form-control" value="<?php echo $proitem['offerprice']; ?>" placeholder="Enter Product Offer Price">
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label>VAT</label>
-                        <input type="text" name="vat" class="form-control" value="<?php echo $proitem['vat']; ?>" placeholder="Enter Value Added Tax">
-                    </div>
-                </div>
+                <!--   -->
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Quantity</label>
@@ -138,11 +127,11 @@ include('includes/sidebar.php');
                         <input type="file" name="image3" class="form-control" required>
                     </div>
                 </div>     -->
-                <div class="col-md-3" >
+                <!-- <div class="col-md-3" >
                     <div class="form-group">
                         <label>Status (checked = Show | Hide)</label><br>
                         <input type="checkbox" name="status" value="<?php echo $proitem['name'] == '1' ? 'checked':'' ?>"> Show / Hide
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-md-2 mt-3">
                     <div class="form-group">

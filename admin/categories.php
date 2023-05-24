@@ -106,8 +106,8 @@ include('includes/sidebar.php');
                   <th>Id</th>
                   <th>Name</th>
                   <th>Description</th>
-                  <th>Trending</th>
-                  <th>Status</th>
+                  <!-- <th>Trending</th>
+                  <th>Status</th> -->
                   <th>Created At</th>
                   <th>Action</th>
               </tr>
@@ -125,12 +125,12 @@ include('includes/sidebar.php');
                     <td><?php echo $catitem['id']; ?></td>
                     <td><?php echo $catitem['name']; ?></td>
                     <td><?php echo $catitem['description']; ?></td>
-                    <td>
-                      <input type="checkbox" <?php echo $catitem['trending'] == '1' ? 'checked':'' ; ?> readonly>
+                    <!-- <td>
+                      <input type="checkbox" //<?php echo $catitem['trending'] == '1' ? 'checked':'' ; ?>// readonly>
                     </td>
                     <td>
-                      <input type="checkbox" <?php echo $catitem['status'] == '1' ? 'checked':'' ; ?> readonly>
-                    </td>
+                      <input type="checkbox" //<?php echo $catitem['status'] == '1' ? 'checked':'' ; ?>// readonly>
+                    </td> -->
                     <td><?php echo $catitem['created_at']; ?></td>
                     <td>
                         <a href="edit_category.php? id=<?php echo $catitem['id']; ?>" class="btn btn-info btn-sm">Edit</a>

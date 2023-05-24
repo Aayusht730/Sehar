@@ -66,7 +66,6 @@ include('includes/sidebar.php');
                   <th>Id</th>
                   <th>Name</th>
                   <th>Price</th>
-                  <th>Status</th>
                   <th>Created At</th>
                   <th>Action</th>
               </tr>
@@ -84,9 +83,6 @@ include('includes/sidebar.php');
                     <td><?php echo $pro_item['id']; ?></td>
                     <td><?php echo $pro_item['name']; ?></td>
                     <td><?php echo $pro_item['price']; ?></td>
-                    <td>
-                      <input type="checkbox" <?php echo $pro_item['status'] == '1' ? 'checked':'' ; ?> readonly>
-                    </td>
                     <td><?php echo $pro_item['created_at']; ?></td>
                     <td>
                         <a href="edit_pro.php? pro_id=<?php echo $pro_item['id']; ?>" class="btn btn-info btn-sm">Edit</a>

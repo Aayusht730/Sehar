@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white  fixed-top">
         <div class="container">
           <a class="Sehar" href="index.php"><img src="assets/imgs/seharlogo.png" alt="Logo" height="60px"></a>
@@ -7,30 +15,29 @@
         </ul>
 
         <div class="collapse navbar-collapse search-bar" id="navbarSupportedContent">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="button btn-outline-success" type="submit">Search</button>
-              </form>
+            <form class="d-flex" role="search" action="search_action.php" method="POST" >
+              <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
+              <input class="button btn-outline-success" type="submit" name="search_btn" value="Search">
+            </form>
         </div>
     
           <div class="collapse navbar-collapse nav-buttons" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="shop.html">Shop</a>
+                <a class="nav-link" href="shop.php">Shop</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Categories
                 </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+               <b> <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"><b>Digital</b></a></li>
+                  <li><a class="dropdown-item" href="#"><b>Analog</b></a></li>
+                  <li><a class="dropdown-item" href="#"><b>Ayurvedic</b></a></li>
+                </ul></b>
               </li>
               <!-- <li class="nav-item">
                 <a class="nav-link "href="#">Aayush</a>
@@ -40,7 +47,7 @@
                   <a  class='nav-link' href="cart_page.php"><i class="fas fa-shopping-cart" ></i></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="login.php"> <i class="fas fa-user"></i> </a>
+                  <a class="nav-link" href="account.php"> <i class="fas fa-user"></i> </a>
               </li>
               </li>
 

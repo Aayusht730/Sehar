@@ -2,6 +2,19 @@
 
 session_start();
 
+// session_unset();
+
+
+// $_SESSION['total'] = 0; 
+
+
+// checks if user is logged in
+if (!isset($_SESSION['logged_in'])) {
+  // Redirect to the login page or show an error message
+  header('Location: login.php');
+  exit;
+}
+
 
 // fetch products from the single product page.
   if(isset($_POST['add_to_cart'])){
@@ -9,6 +22,8 @@ session_start();
     // if user already has product in the cart
     if (isset($_SESSION['cart'])){
       $product_id = $_POST['product_id'];
+      $email = $_SESSION['email'];
+
 
       $product_array_ids = array_column($_SESSION['cart'],"product_id");
 
@@ -19,8 +34,9 @@ session_start();
                                 'image1' => $_POST['image1'],
                                 'name' => $_POST['name'],
                                 'price' => $_POST['price'],
+                                'email' => $email ?? "",
                                 'qty' => $_POST['qty']);
-      $_SESSION['cart'][$product_id] = $product_array;
+      $_SESSION['cart'][$product_id]= $product_array;
       }
       // if the product has already been added
       else{
@@ -30,32 +46,87 @@ session_start();
   }
   else{
     // if this is the first product
-    $product_id = $_POST['id'];
+    $product_id = $_POST['product_id'];
+    $email = $_SESSION['email'];
     $image1 = $_POST['image1'];
     $name = $_POST['name'];
     $price = $_POST['price'];  
     $qty = $_POST['qty'];
     
-    $product_array = array('id'=> $product_id,
+    $product_array = array('product_id'=> $product_id,
                             'image1'=> $image1,
                             'name'=> $name,
                             'price'=> $price,
+                            'email' => $email ?? "",
                             'qty'=> $qty );
 
     $_SESSION['cart'][$product_id] = $product_array;
   }
+
+  // calculate total
+  calculateTotal();
+
 } 
+
+
+
 // remove product from the cart
-else if(isset($_POST['remove_product'])){ 
+else if(isset($_POST['remove_product'])){
 
   $product_id = $_POST['product_id'];
   unset($_SESSION['cart'][$product_id]);
+
+  // calculate total
+  calculateTotal();
 }
+
+//editing quantity  
+else if (isset($_POST['edit_qty'])){
+
+  // getting id and qty from the form 
+  $product_id = $_POST['product_id'];
+  $qty = $_POST['qty'];
+
+  // getting product array form the session 
+  $product_array = $_SESSION['cart'][$product_id];
+
+  // updaating new qty
+  $product_array['qty'] = $qty;
+
+  // returning array
+  $_SESSION['cart'][$product_id] = $product_array;
+
+
+  // calculate total
+  calculateTotal();
+
+}
+
 else{
   // header('Location: index.php');
 }
-?>
 
+
+function calculateTotal(){
+  $_SESSION['total'] = 0; 
+  $total = 0;
+  
+    foreach($_SESSION['cart'] as $key => $value){
+      
+      // if($value['email'] == $_SESSION['email']){
+
+      $product = $_SESSION['cart'][$key];
+
+      $price = $product['price'];
+      $qty = $product['qty'];
+      
+      
+      $total = $total + ($price * $qty);
+      }
+    // }
+    $_SESSION['total'] = $total; 
+}
+?>
 
 
 <!DOCTYPE html>
@@ -100,63 +171,80 @@ include('navbar.php');
               <tr>
                   <th>Product</th>
                   <th>Quantity</th>
-                  <th>Sub-total</th>
+                  <th>Sub-Total</th>
               </tr>
 
               <?php 
                 foreach($_SESSION['cart'] as $key => $value){
+                  // print_r($value);
+                  // print_r($_SESSION['cart']);
+                  if($value['email'] == $_SESSION['email']){
+                  // if(true){
+
+                  
+
               ?>
 
 
               <tr>
                   <td>
                       <div class = "product-info">
-                      <img src="../admin/uploads/product/<?php echo $value['image1']; ?>" /> 
+                      <img src="../admin/uploads/product/<?php echo $value['image1']; ?> "/>
                           <div>
-
                               <p><?php echo $value['name']; ?></p>
-                              <small><span>Rs.</span><?php echo $value['price']; ?></small>
+                              <small><span>Rs. </span><?php echo $value['price']; ?></small>
                               <br>
                               <form method="POST" action="cart_page.php">
-                                <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>">
+                                <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>"/>
                                 <input type="submit" name="remove_product" class="remove-btn" value="Remove"/>
                               </form>
                           </div>
                       </div>
                   </td>
 
-                  <td> 
-                      <input type="number" value="<?php echo $value['qty']; ?>"/>
-                      <!-- <a class="edit-btn" href="#">Edit</a> -->
+                  <td>
+                    
+                    <form method="POST" action="cart_page.php">
+                      <input type="hidden" name="product_id" value="<?php echo $value['product_id'];?>" />
+                      <input type="number" name="qty" value="<?php echo $value['qty']; ?>"/> 
+                      <input type="submit" class="edit-btn" value="Edit" name="edit_qty" />
+                    </form>  
+                                         
+
                   </td>
 
                   <td>
-                      <span>Rs.</span>
-                      <span class="product-price">5000</span>
+                      <span>Rs. </span>
+                      <span class="product-price"><?php echo $value['qty'] * $value['price']; ?></span>
                   </td>
               </tr>
             
             <?php
             }
+                }
+            // session_destroy();
             ?>
+
           </table> 
         </div>
 
         <div class="cart-total">
           <table>
-            <tr>
+            <!-- <tr>
               <td>VAT</td>
-              <td>Rs. 5000</td>
-            </tr>
+              <td><span>Rs. </span> </td>
+            </tr> -->
             <tr>
               <td>Total</td>
-              <td>Rs. 5000</td> 
+              <td><span>Rs. </span> <?php echo $_SESSION['total']; ?> </td> 
             </tr>
           </table>
         </div>
 
        <div class="checkout-container">
-        <button class="checkout-btn">Checkout</button>
+        <form method="POST" action="checkout.php">
+          <input type="submit" class="checkout-btn" value="Checkout" name="checkout">
+        </form>
        </div> 
 
         
@@ -166,47 +254,10 @@ include('navbar.php');
 
 
     <!-- footer -->
-    <footer>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <img src="assets/imgs/seharlogo.png" alt="Logo">
-              <p class="pt-3">We provide best product at most affordable prices.</p>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12" id="links">
-              <h4>Links</h4>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="login.html">Login</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <h4>Contact</h4>
-              <ul>
-                <li>Email: sehar.official@email.com</li>
-                <li>Phone: +977-0123456789</li>
-                <li>Address: Kathmandu, Nepal</li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <h4>Follow Us</h4>
-              <ul class="social-links">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <p class="text-center">Copyright &copy; 2022 Sehar. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+    <?php
+      include('footer.php');
+    ?>
+        
                             
   
       <!-- <linking js cdn  -->

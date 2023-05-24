@@ -111,17 +111,19 @@ h6{
 }
 
 .button {
+    border-color: black;
     font-weight: bold;
-    background-color: black;
-    color: #71C598;
+    background-color: #71C598;
+    color: black;
     border-radius: 10px; /* This will make the button rounded */
     padding: 5px; /* This will increase the size of the button */
     transition: background-color 0.3s, color 0.3s;
 }
 
 .button:hover {
-    background-color: #71C598;
-    color: black;
+    border-color: #71C598;
+    background-color: black;
+    color: #71C598;
 }
 
 
@@ -516,17 +518,21 @@ footer {
 }
 
 .cart .remove-btn{
-    color: rgb(110, 22, 22);
+    color: red;
     font-weight: bolder;
     background-color: white;
     border: none;
     width: 100%;
+    text-decoration: underline;
 }
 
-/* .cart .edit-btn{
+.cart .edit-btn{
     color: #71C598;
     font-weight: bolder;
-} */
+    background-color: white;
+    border: none;
+    text-decoration: underline;
+}
 
 .cart td input{
     text-align: center;
@@ -568,6 +574,7 @@ th:last-child{
 }
 
 .checkout-btn{
+    text-align: center;
     font-weight: bold;
     background-color: #71C598;
     color: black;
@@ -589,10 +596,10 @@ th:last-child{
 
 /* ............checkoutpage............... */
 
-#checkout-form{
+/* #checkout-form{
     border-top: 3px solid #71C598;
     font-weight: bold;
-}
+} */
 
 #checkout-form .checkout-small-element{
     display: inline-block;
@@ -616,6 +623,7 @@ th:last-child{
     color: black;
     border-radius: 10px; /* This will make the button rounded */
     padding: 5px; /* This will increase the size of the button */
+    /* margin-top: 10px; */
 }
 #checkout-form #checkout-btn:hover{
     background-color: black;
@@ -656,5 +664,57 @@ th:last-child{
 #account-form #change-pass-btn:hover{
     background-color: #71C598;
     color: black;
+}
+
+
+/* orders table */
+.orders table{
+    font-weight: bold;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders .product-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.orders th{
+    text-align: left;
+    padding: 5px 10px;
+    color: black;
+    background-color: #71C598;
+}
+
+.orders td{
+    padding: 5px 10px;
+}
+
+
+th:last-child{
+    text-align: right;
+}
+
+td:last-child{
+    text-align: right;
+}
+
+
+.orders .orders_details-btn{
+    font-weight: bold;
+    background-color: #71C598;
+    color: black;
+    border-radius: 10px; /* This will make the button rounded */
+    padding: 5px;
+}
+.orders .orders_details-btn{
+    background-color: black;
+    color: #71C598;
+}
+
+
+
+.bold-message {
+    font-weight: bold;
 }
 
