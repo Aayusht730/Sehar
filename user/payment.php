@@ -59,23 +59,18 @@ if(isset($_POST['order_pay '])){
 
         <?php if(isset($_POST['order_status']) && $_POST['order_status'] == "Not Paid"){ ?>
             <?php $amount = $_POST['total_order'];?>
-            <?php //$order_id =$_POST['order_id'];?>
+            <?php $order_id =$_POST['order_id'];?>
             <b><p>Total Payment: Rs. <?php echo $_POST['total_order'] ?></p></b>
             <div id="paypal-button-container"></div>
-            <!-- <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /> -->
-            <!-- <input id="payment-btn" class="btn checkout-btn" type="submit" value="Pay Now"/> -->
+            <!-- <input id="paypal-button-container" class="btn checkout-btn" type="submit" value="Pay Now"/> -->
 
 
         <?php } else if(isset($_SESSION['total']) && $_SESSION['total'] != 0){ ?>
             <?php $amount = $_SESSION['total'];?>
-            <?php //$order_id = $_SESSION['order_id']; ?>
+            <?php $order_id = $_SESSION['order_id']; ?>
           <p><b>Total Amount: Rs. <?php echo $_SESSION['total']; ?></b></p>
           <div id="paypal-button-container"></div>
-          <!-- <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /> -->
-          <!-- <input id="payment-btn" class="btn checkout-btn" type="submit" value="Pay Now"/> -->
-
-
-        
+          <!-- <input id="paypal-button-container" class="btn checkout-btn" type="submit" value="Pay Now"/> -->
 
         <?php } else{?>
 
@@ -97,15 +92,14 @@ if(isset($_POST['order_pay '])){
                         
     <!-- <linking js cdn  -->
     
-   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     
 
+
     <!-- PAYPAL -->
     <script src="https://www.paypal.com/sdk/js?client-id=AS28BGj53ZduubF02gMWAy13j_lY144wKiKcbeE14WS6AC6pm7CBZLvs2I8mi28GSlOjdvPtTWPObtKI&currency=USD"></script>
-    
-
-    <!-- Paypal script -->
+  
+    <!-- Paypal logic -->
    <script>
       paypal.Buttons({
         // Order is created on the server and the order id is returned
@@ -128,6 +122,9 @@ if(isset($_POST['order_pay '])){
         console. log('Capture result', orderData, JSON.stringify(orderData, null, 2));
         var transaction = orderData.purchase_units[0].payments.captures[0];
         alert('Transaction '+ transaction.status +': ' + transaction.id + '\n\nSee console for allavailable details');
+
+        window.location.href = "server_user/complete_payment.php?transaction_id=" + transaction.id + "&order_id=" + <?php echo $order_id; ?>;
+
         // element.innerHTML = '<h3>Thank you for your payment!</h3>";
         // Or go to another URL: actions.redirect(‘thank_you.html')
             });

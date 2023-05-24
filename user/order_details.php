@@ -20,7 +20,7 @@ if(isset ($_POST['order_details']) && isset($_POST ['order_id'])){
     $order_id = $_POST['order_id'];
     $order_status = $_POST['order_status'];
 
-    $stm = $con->prepare("SELECT * FROM order_items WHERE order_id=?");
+    $stm = $con->prepare("SELECT * FROM order_items WHERE order_id=? ");
     
     $stm->bind_param('i',$order_id);
 

@@ -62,7 +62,7 @@ else{
                 
         // remove everything from cart
 
-        unset($_SESSION['cart']);
+        // unset($_SESSION['cart']);
 
         $_SESSION['order_id'] = $order_id;
 

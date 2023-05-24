@@ -47,3 +47,14 @@ CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (user_id),
     UNIQUE KEY 'UX-Constraint' ('user_email')
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+-- payment table
+
+CREATE TABLE IF NOT EXISTS payments (
+    payment_id INT(11) NOT NULL AUTO_INCREMENT,
+    order_id INT(11) NOT NULL,
+    user_id INT(11) NOT NULL,
+    transaction_id VARCHAR(250) NOT NULL,
+    PRIMARY KEY (payment_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

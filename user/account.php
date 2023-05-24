@@ -54,7 +54,7 @@ if(isset($_SESSION['logged_in'])){
   // getting userid
   $user_id = $_SESSION['id'];
 
-  $stm = $con->prepare("SELECT * FROM orders WHERE user_id=?");
+  $stm = $con->prepare("SELECT * FROM orders WHERE user_id=? ORDER BY order_id DESC");
 
   $stm->bind_param('i',$user_id); 
 
@@ -103,6 +103,7 @@ if(isset($_SESSION['logged_in'])){
     <!-- account -->
     <section class="my-5 py-5">
         <div class="row container mx-auto">
+        <p class="mt-5 text-center" style='color: green'><b><?php if(isset($_GET['payment_message'])){echo $_GET['payment_message'];} ?></b></p>
           <div class="text-center mt-3 pt-5 col-lg-6 col-md-12 col-sm-12">
           <p class="text-center" style='color: green'><b><?php if(isset($_GET['register_success'])){echo $_GET['register_success'];} ?></b></p>
            <p class="text-center" style='color: green'><b><?php if(isset($_GET['login_success'])){echo $_GET['login_success'];} ?></b></p>
